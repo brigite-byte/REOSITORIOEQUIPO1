@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Población, muestra y muestreo – Equipo 1</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--tx:#1d2733;--mu:#5d6b7a;--bd:#dfe3e8;--ac:#1f6f8b;--a2:#e07a3f;--a3:#6a994e;--hl:#e8f2f6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12171c;--card:#1b222a;--tx:#e6ebf0;--mu:#9aa7b4;--bd:#2c3640;--ac:#58b3d1;--a2:#f0a06a;--a3:#8fc16f;--hl:#1f2e38}}
+:root[data-theme="dark"]{--bg:#12171c;--card:#1b222a;--tx:#e6ebf0;--mu:#9aa7b4;--bd:#2c3640;--ac:#58b3d1;--a2:#f0a06a;--a3:#8fc16f;--hl:#1f2e38}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 Georgia,"Times New Roman",serif}
+header{background:var(--ac);color:#fff;padding:28px 20px}header h1{margin:0 0 4px;font-size:1.6rem}header p{margin:2px 0;opacity:.92}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--card);border-bottom:1px solid var(--bd);display:flex;gap:4px;overflow-x:auto;padding:6px 12px;z-index:5}
+nav button{font:inherit;border:0;background:none;color:var(--mu);padding:8px 14px;border-radius:8px;cursor:pointer;white-space:nowrap}
+nav button.on{background:var(--hl);color:var(--ac);font-weight:700}
+main{max-width:1050px;margin:0 auto;padding:18px 14px 40px}section{display:none}section.on{display:block}
+h2{margin:6px 0 10px;color:var(--ac)}h3{margin:0 0 8px}
+.g{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));margin-bottom:14px}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px;min-width:0}
+.k{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));margin-bottom:14px}
+.k div{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px;text-align:center}
+.k b{display:block;font-size:1.6rem;color:var(--ac)}.k span{font-size:.8rem;color:var(--mu)}
+.n{background:var(--hl);border-left:4px solid var(--ac);padding:10px 14px;border-radius:6px;margin:10px 0;font-size:.93rem}
+.w{border-left-color:var(--a2)}
+.t{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.88rem}th,td{border:1px solid var(--bd);padding:6px 9px;text-align:left}th{background:var(--hl)}td.r,th.r{text-align:right}
+.cv{position:relative;height:250px}.tag{display:inline-block;font-size:.72rem;background:var(--hl);color:var(--ac);border-radius:20px;padding:1px 9px;margin-right:4px}
+ol li{margin-bottom:8px;text-align:justify}footer{text-align:center;color:var(--mu);font-size:.8rem;padding:14px}
+</style></head><body>
+<header><h1>Población, muestra, criterios de selección y tipos de muestreo</h1>
+<p>Dashboard de la sesión · Análisis con bases de datos SPSS (ejercicio 1 y ejercicio 2)</p><p><b>Autor: Equipo 1</b></p></header>
+<nav id="nav"><button class="on" data-s="teo">Marco teórico</button><button data-s="e1">Ejercicio 1 · Pacientes</button><button data-s="e2">Ejercicio 2 · Escolares</button><button data-s="bib">Bibliografía</button></nav>
+<main>
+<section id="teo" class="on"><h2>1. Conceptos clave de la sesión</h2>
+<div class="g">
+<div class="c"><h3>Población</h3><p>Conjunto de todos los casos que concuerdan con determinadas especificaciones (1). Se distingue la <b>población objetivo</b> (a la que se desea generalizar) de la <b>población accesible</b> (a la que realmente se tiene acceso) (2).</p><p><span class="tag">Ejemplo</span>Todos los pacientes atendidos en los hospitales Regional, Belén y La Noria.</p></div>
+<div class="c"><h3>Muestra</h3><p>Subgrupo de la población del que se recolectan los datos; debe ser representativo para poder inferir hacia la población (1,3). Cada elemento es la <b>unidad de análisis</b>.</p><p><span class="tag">Ejemplo</span>20 estudiantes seleccionados al azar de un total de 40.</p></div>
+<div class="c"><h3>Criterios de inclusión</h3><p>Características que deben cumplir los sujetos para ingresar al estudio (edad, diagnóstico, lugar, periodo) (4).</p><p><span class="tag">Ejemplo</span>Escolares de 12 a 17 años; pacientes con presión sistólica ≥ 140 mmHg o diastólica ≥ 90 mmHg.</p></div>
+<div class="c"><h3>Criterios de exclusión</h3><p>Condiciones que, aun cumpliendo la inclusión, impiden o sesgan el análisis (comorbilidades, datos incompletos, negativa a participar) (4,7).</p><p><span class="tag">Ejemplo</span>Excluir pacientes con glucosa ≥ 126 mg/dL para aislar el efecto de la hipertensión.</p></div></div>
+<div class="c"><h3>Tipos de muestreo</h3><div class="t"><table><tr><th>Tipo</th><th>Técnica</th><th>Cómo se aplica</th></tr>
+<tr><td rowspan="4"><b>Probabilístico</b><br>(todos tienen probabilidad conocida de ser elegidos)</td><td>Aleatorio simple</td><td>Sorteo directo de n elementos del marco muestral.</td></tr>
+<tr><td>Sistemático</td><td>Se elige cada k-ésimo elemento, k = N/n, con arranque aleatorio.</td></tr>
+<tr><td>Estratificado</td><td>Se divide en estratos homogéneos y se sortea dentro de cada uno (proporcional o no).</td></tr>
+<tr><td>Por conglomerados</td><td>Se sortean grupos naturales (aulas, hospitales) y se estudia a todos sus miembros.</td></tr>
+<tr><td rowspan="4"><b>No probabilístico</b><br>(depende del criterio del investigador)</td><td>Por conveniencia</td><td>Quienes están disponibles y accesibles.</td></tr>
+<tr><td>Intencional o criterial</td><td>Se eligen casos según criterio experto.</td></tr>
+<tr><td>Por cuotas</td><td>Se fija una cuota por característica (sexo, edad) y se llena sin sorteo.</td></tr>
+<tr><td>Bola de nieve</td><td>Los participantes refieren a otros (poblaciones de difícil acceso).</td></tr></table></div>
+<p class="n">Solo el muestreo probabilístico permite calcular el error muestral y generalizar con respaldo estadístico (3,5).</p></div></section>
+
+<section id="e1"><h2>2. Ejercicio 1: pacientes de tres hospitales</h2>
+<p><b>Contexto.</b> Base <i>ejercicio1.sav</i> con 40 pacientes atendidos en tres hospitales, con talla, peso, presión arterial, glucosa, colesterol, triglicéridos e IMC. Es un caso de evaluación del riesgo cardiometabólico: la población son los pacientes de esos hospitales y las 40 filas son la muestra analizada. La unidad de análisis es el paciente.</p>
+<div class="k"><div><b>40</b><span>pacientes (n)</span></div><div><b>3</b><span>hospitales (estratos)</span></div><div><b>35 / 5</b><span>varones / mujeres</span></div><div><b>70,0 kg</b><span>peso medio</span></div><div><b>131,6 mmHg</b><span>PAS media</span></div></div>
+<div class="g"><div class="c"><h3>Sexo (SPSS: gráfico de barras)</h3><div class="cv"><canvas id="a1"></canvas></div></div>
+<div class="c"><h3>Hospital de atención (SPSS: barras)</h3><div class="cv"><canvas id="a2"></canvas></div></div></div>
+<div class="n"><b>Interpretación.</b> La muestra está concentrada en el hospital Regional (21 de 40; 52,5 %) y es mayoritariamente masculina (87,5 %). Esto muestra que una muestra no siempre refleja la composición de la población: con tan pocas mujeres (5) no se podrían comparar resultados por sexo ni generalizar a pacientes mujeres.</div>
+<div class="g"><div class="c"><h3>Presión arterial sistólica (mmHg)</h3><div class="cv"><canvas id="a3"></canvas></div></div>
+<div class="c"><h3>Peso (kg)</h3><div class="cv"><canvas id="a4"></canvas></div></div></div>
+<div class="n"><b>Interpretación.</b> La PAS varía de 90 a 167 mmHg (DE = 26,4) y tiene dos concentraciones, una en 90-100 y otra en 150-170 mmHg: la muestra mezcla pacientes normotensos e hipertensos. El peso va de 51 a 89 kg (media 70,0; DE = 11,5) sin un patrón marcado.</div>
+<div class="c"><h3>Estadísticos descriptivos (recalculados desde la base)</h3><div class="t" id="d1"></div></div>
+<div class="n w"><b>Alerta de calidad de datos.</b> La variable <i>IMC</i> de la base está calculada como peso/talla en lugar de peso/talla² (por ejemplo, 55,76/1,66 = 33,59, cuando el IMC correcto es 20,2). Por eso todos los pacientes figuran con IMC ≥ 28,7. Este dashboard usa el IMC corregido; la media pasa de 41,8 a 25,1 kg/m² (6).</div>
+<div class="g"><div class="c"><h3>Estado nutricional con IMC corregido (OMS)</h3><div class="cv"><canvas id="a5"></canvas></div></div>
+<div class="c"><h3>Criterios de selección aplicados (ejemplo didáctico)</h3><p><span class="tag">Inclusión</span>PAS ≥ 140 o PAD ≥ 90 mmHg (hipertensión).<br><span class="tag">Exclusión</span>Glucosa ≥ 126 mg/dL (posible diabetes).</p><div class="cv" style="height:200px"><canvas id="a6"></canvas></div></div></div>
+<div class="n" id="i6"></div>
+<div class="c"><h3>Muestreo estratificado proporcional por hospital (n = 20)</h3><div class="t" id="d2"></div><p class="n">Si se quisiera una submuestra de 20 pacientes manteniendo la proporción de la muestra original, cada hospital aporta n × (Nh/N). La Noria, con solo 5 pacientes, quedaría sub-representada si se usara muestreo simple.</p></div></section>
+
+<section id="e2"><h2>3. Ejercicio 2: escolares y muestra aleatoria</h2>
+<p><b>Contexto.</b> Base <i>ejercicio2.sav</i> con 40 estudiantes (edad, sexo, tipo de colegio y grado). En SPSS se usó <i>Seleccionar casos → muestra aleatoria</i> de 20 de los 40 casos. Aquí los 40 estudiantes son la población de referencia y los 20 seleccionados son la muestra (muestreo aleatorio simple, fracción de muestreo 50 %). Los nombres no se muestran.</p>
+<div class="k"><div><b>40</b><span>población (N)</span></div><div><b>20</b><span>muestra (n)</span></div><div><b>13,8</b><span>edad media (años)</span></div><div><b>10–17</b><span>rango de edad</span></div><div><b>21 / 19</b><span>público / privado</span></div></div>
+<div class="g"><div class="c"><h3>Población vs muestra: tipo de colegio (%)</h3><div class="cv"><canvas id="b1"></canvas></div></div>
+<div class="c"><h3>Población vs muestra: sexo (%)</h3><div class="cv"><canvas id="b2"></canvas></div></div></div>
+<div class="n"><b>Interpretación.</b> La población es casi paritaria (sexo 50 %-50 %; colegio público 52,5 % y privado 47,5 %). En la muestra azarosa el colegio privado pasa a 60 % y el público a 40 %. Esa diferencia no es un error: es <b>variabilidad muestral</b>, propia del azar con n pequeño. Para controlarla se usaría el muestreo estratificado.</div>
+<div class="g"><div class="c"><h3>Edad en la población (frecuencia)</h3><div class="cv"><canvas id="b3"></canvas></div></div>
+<div class="c"><h3>Grado en la población vs la muestra</h3><div class="cv"><canvas id="b4"></canvas></div></div></div>
+<div class="n"><b>Interpretación.</b> Las edades de 11 a 17 años se reparten de forma casi uniforme (5-6 casos por edad) y hay un solo estudiante de 10 años. El grado 5 es el más numeroso (14 de 40), y la muestra (edad media 13,9; DE = 1,86) es muy parecida a la población (13,75; DE = 2,07).</div>
+<div class="c"><h3>Criterios de selección y tipos de muestreo sobre esta base</h3><div class="t"><table><tr><th>Concepto</th><th>Aplicación al ejercicio 2</th><th class="r">n</th></tr>
+<tr><td>Inclusión</td><td>Edad entre 12 y 17 años (educación secundaria)</td><td class="r" id="c1"></td></tr>
+<tr><td>Exclusión</td><td>Edad menor de 12 años</td><td class="r" id="c2"></td></tr>
+<tr><td>Aleatorio simple</td><td>Sorteo de 20 de 40 (Seleccionar casos de SPSS)</td><td class="r">20</td></tr>
+<tr><td>Sistemático</td><td>k = 40/20 = 2; arranque al azar; se toma uno de cada dos (casos 1, 3, 5…)</td><td class="r">20</td></tr>
+<tr><td>Estratificado (colegio)</td><td>Proporcional: 21/40 × 20 ≈ 10,5 públicos y 19/40 × 20 ≈ 9,5 privados</td><td class="r">20</td></tr>
+<tr><td>Conglomerados (grado)</td><td>Sortear 2 de los 5 grados y estudiar a todos sus alumnos</td><td class="r">variable</td></tr>
+<tr><td>Conveniencia</td><td>Tomar a los 20 primeros de la lista (sin sorteo, no probabilístico)</td><td class="r">20</td></tr></table></div></div></section>
+
+<section id="bib"><h2>4. Bibliografía</h2><div class="c"><ol>
+<li>Hernández-Sampieri R, Mendoza Torres CP. Metodología de la investigación: las rutas cuantitativa, cualitativa y mixta. México: McGraw-Hill; 2018.</li>
+<li>Argimon Pallás JM, Jiménez Villa J. Métodos de investigación clínica y epidemiológica. 4.ª ed. Barcelona: Elsevier; 2013.</li>
+<li>Otzen T, Manterola C. Técnicas de muestreo sobre una población a estudio. Int J Morphol. 2017;35(1):227-32.</li>
+<li>Arias-Gómez J, Villasís-Keever MÁ, Miranda-Novales MG. El protocolo de investigación III: la población de estudio. Rev Alerg Mex. 2016;63(2):201-6.</li>
+<li>López-Roldán P, Fachelli S. Metodología de la investigación social cuantitativa. Bellaterra: Universitat Autònoma de Barcelona; 2015.</li>
+<li>World Health Organization. Obesity: preventing and managing the global epidemic. Report of a WHO consultation. Geneva: WHO; 2000. (WHO Technical Report Series, 894).</li>
+<li>Hulley SB, Cummings SR, Browner WS, Grady D, Newman TB. Diseño de investigaciones clínicas. 4.ª ed. Barcelona: Wolters Kluwer; 2014.</li></ol>
+<p class="n">Fuentes de datos: ejercicio1.sav, ejercicio2.sav y salidas Resultado1.spv y Resultado2.spv (IBM SPSS Statistics 27).</p></div></section>
+</main><footer>Equipo 1 · Estadística y análisis de datos</footer>
+<script>
+const P=[[2,'La Noria'],[1,'Regional']];
+// Ejercicio 1: [hospital(R,B,L), sexo, talla, peso, PAS, PAD, glucosa, colesterol, tgs]
+const H={R:'Regional',B:'Belén',L:'La Noria'};
+const D1=[['L',1,1.66,55.76,162,83,108,221,179],['R',2,1.61,64.54,96,66,169,216,201],['R',1,1.86,86.22,99,95,133,234,152],['B',1,1.53,74.22,158,99,104,204,169],['R',2,1.63,69,167,80,80,211,218],['B',1,1.62,53.89,165,68,136,207,174],['L',1,1.8,51.74,153,62,179,245,109],['R',1,1.69,65.68,123,64,177,247,138],['R',1,1.82,66.04,147,78,174,206,133],['B',1,1.73,64.53,156,77,190,256,147],['B',1,1.7,61.44,167,76,169,216,197],['R',1,1.66,62.57,151,67,167,233,146],['R',1,1.86,64.94,162,75,160,253,162],['R',1,1.86,58,127,61,159,257,208],['R',1,1.52,72.5,140,71,152,208,204],['R',1,1.86,69.6,90,81,148,203,183],['R',1,1.78,85.83,113,64,146,239,110],['B',1,1.58,59.72,140,75,142,227,201],['R',1,1.84,86.56,92,87,140,220,130],['B',1,1.66,50.95,92,60,139,207,210],['R',1,1.8,89.13,113,75,132,254,103],['L',1,1.69,59.02,91,75,122,240,204],['B',1,1.54,85.29,138,73,115,213,168],['B',1,1.72,77.54,99,64,108,246,219],['L',1,1.84,76.68,164,88,107,201,149],['R',1,1.54,82.91,97,64,103,246,137],['B',1,1.55,73.68,156,66,101,248,159],['B',1,1.52,56.54,135,83,91,225,196],['R',1,1.78,73,102,83,88,230,129],['B',1,1.59,66.65,144,88,75,213,214],['R',1,1.77,60.75,163,81,70,205,203],['L',2,1.55,84.9,137,83,156,234,152],['R',2,1.7,78.02,126,70,152,207,192],['R',1,1.5,64,143,79,179,211,173],['R',1,1.58,57.92,112,94,179,249,140],['B',1,1.58,61.6,162,93,154,256,121],['B',1,1.56,89.36,148,72,135,252,118],['R',1,1.89,88.85,127,63,73,254,140],['B',2,1.61,80.77,105,62,123,213,110],['R',1,1.67,70.85,100,95,135,203,107]];
+// Ejercicio 2: [edad, sexo(1 M,2 F), colegio(1 púb,2 priv), grado, muestra]
+const D2=[[12,2,1,1,0],[13,1,2,2,0],[14,1,1,3,1],[15,2,1,4,0],[16,1,2,5,1],[17,2,1,5,1],[11,1,2,1,1],[12,2,1,2,0],[13,1,2,3,1],[14,2,1,4,1],[15,1,2,4,1],[16,2,2,2,0],[17,1,1,5,0],[11,2,1,1,0],[12,1,2,2,1],[13,2,2,5,1],[14,1,2,3,1],[15,2,1,5,1],[16,1,2,5,0],[17,2,1,5,1],[11,1,1,5,0],[12,2,1,3,1],[13,1,2,4,1],[14,2,2,5,1],[15,1,2,3,0],[16,2,1,4,0],[17,1,2,2,0],[11,2,1,1,0],[12,1,2,1,1],[13,2,1,5,0],[14,1,1,4,1],[15,2,1,4,0],[16,1,1,5,0],[17,2,2,5,1],[11,1,1,1,1],[12,2,2,2,0],[13,1,1,4,0],[14,2,2,4,1],[10,1,2,5,0],[11,2,1,5,0]];
+const cs=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const C=()=>[cs('--ac'),cs('--a2'),cs('--a3'),'#9b6bb5'];
+Chart.defaults.font.family='Georgia,serif';Chart.defaults.color=cs('--mu');
+const f1=(x,d=1)=>x.toFixed(d).replace('.',',');
+const cnt=(a,f)=>a.filter(f).length;
+function ch(id,type,labels,sets,o={}){const c=C();new Chart(document.getElementById(id),{type,data:{labels,datasets:sets.map((s,i)=>({backgroundColor:type==='bar'?c[i]:c,borderColor:cs('--card'),...s}))},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:sets.length>1||type==='doughnut'}},scales:type==='doughnut'?{}:{y:{beginAtZero:true,title:{display:!!o.y,text:o.y}},x:{title:{display:!!o.x,text:o.x}}},...(o.o||{})}})}
+// nav
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('nav button,section').forEach(e=>e.classList.remove('on'));b.classList.add('on');document.getElementById(b.dataset.s).classList.add('on');window.scrollTo(0,0)});
+// E1
+const N1=D1.length,col=i=>D1.map(r=>r[i]);
+ch('a1','bar',['Masculino','Femenino'],[{data:[cnt(D1,r=>r[1]==1),cnt(D1,r=>r[1]==2)],label:'Pacientes'}],{y:'Recuento'});
+ch('a2','bar',['Regional','Belén','La Noria'],[{data:['R','B','L'].map(h=>cnt(D1,r=>r[0]==h)),label:'Pacientes'}],{y:'Recuento'});
+const hist=(v,edges)=>edges.slice(0,-1).map((e,i)=>cnt(v,x=>x>=e&&x<edges[i+1]));
+const lab=e=>e.slice(0,-1).map((x,i)=>x+'-'+(e[i+1]-1));
+const e3=[90,100,110,120,130,140,150,160,170],e4=[50,55,60,65,70,75,80,85,90];
+ch('a3','bar',lab(e3),[{data:hist(col(4),e3),label:'Pacientes',categoryPercentage:1,barPercentage:.95}],{y:'Frecuencia',x:'mmHg'});
+ch('a4','bar',lab(e4),[{data:hist(col(3),e4),label:'Pacientes',categoryPercentage:1,barPercentage:.95}],{y:'Frecuencia',x:'kg'});
+const st=a=>{const m=a.reduce((s,x)=>s+x,0)/a.length,sd=Math.sqrt(a.reduce((s,x)=>s+(x-m)**2,0)/(a.length-1));return[m,sd,Math.min(...a),Math.max(...a)]};
+const imc=D1.map(r=>r[3]/r[2]**2);
+const V=[['Talla (m)',col(2),2],['Peso (kg)',col(3),2],['PAS (mmHg)',col(4),1],['PAD (mmHg)',col(5),1],['Glucosa (mg/dL)',col(6),1],['Colesterol (mg/dL)',col(7),1],['Triglicéridos (mg/dL)',col(8),1],['IMC corregido (kg/m²)',imc,2],['IMC de la base (peso/talla)',D1.map(r=>r[3]/r[2]),2]];
+document.getElementById('d1').innerHTML='<table><tr><th>Variable</th><th class="r">n</th><th class="r">Media</th><th class="r">DE</th><th class="r">Mín.</th><th class="r">Máx.</th></tr>'+V.map(([n,a,d])=>{const s=st(a);return`<tr><td>${n}</td><td class="r">${a.length}</td><td class="r">${f1(s[0],d)}</td><td class="r">${f1(s[1],d)}</td><td class="r">${f1(s[2],d)}</td><td class="r">${f1(s[3],d)}</td></tr>`}).join('')+'</table>';
+const cats=[['Bajo peso (<18,5)',x=>x<18.5],['Normal (18,5-24,9)',x=>x>=18.5&&x<25],['Sobrepeso (25-29,9)',x=>x>=25&&x<30],['Obesidad (≥30)',x=>x>=30]];
+ch('a5','doughnut',cats.map(c=>c[0]),[{data:cats.map(c=>cnt(imc,c[1]))}]);
+const inc=D1.filter(r=>r[4]>=140||r[5]>=90),fin=inc.filter(r=>r[6]<126);
+ch('a6','bar',['Muestra total','Cumplen inclusión','Tras exclusión'],[{data:[N1,inc.length,fin.length],label:'Pacientes'}],{y:'n',o:{indexAxis:'y',scales:{x:{beginAtZero:true}}}});
+document.getElementById('i6').innerHTML=`<b>Interpretación.</b> De ${N1} pacientes, ${inc.length} (${f1(inc.length/N1*100)} %) cumplen el criterio de inclusión; al aplicar la exclusión (glucosa ≥ 126 mg/dL) quedan ${fin.length} (${f1(fin.length/N1*100)} %). Cada criterio reduce y especializa la muestra: la población de estudio pasa a ser la de hipertensos sin posible diabetes.`;
+document.getElementById('d2').innerHTML='<table><tr><th>Estrato (hospital)</th><th class="r">Nh</th><th class="r">Proporción</th><th class="r">n proporcional</th></tr>'+['R','B','L'].map(h=>{const k=cnt(D1,r=>r[0]==h);return`<tr><td>${H[h]}</td><td class="r">${k}</td><td class="r">${f1(k/N1*100)} %</td><td class="r">${f1(k/N1*20)}</td></tr>`}).join('')+`<tr><th>Total</th><th class="r">${N1}</th><th class="r">100 %</th><th class="r">20,0</th></tr></table>`;
+// E2
+const S2=D2.filter(r=>r[4]==1),pc=(a,f)=>f1(cnt(a,f)/a.length*100,1)*1.0;
+const pr=(a,f)=>+(cnt(a,f)/a.length*100).toFixed(1);
+ch('b1','bar',['Público','Privado'],[{label:'Población (40)',data:[1,2].map(v=>pr(D2,r=>r[2]==v))},{label:'Muestra (20)',data:[1,2].map(v=>pr(S2,r=>r[2]==v))}],{y:'%'});
+ch('b2','bar',['Masculino','Femenino'],[{label:'Población (40)',data:[1,2].map(v=>pr(D2,r=>r[1]==v))},{label:'Muestra (20)',data:[1,2].map(v=>pr(S2,r=>r[1]==v))}],{y:'%'});
+const ed=[10,11,12,13,14,15,16,17];
+ch('b3','bar',ed,[{label:'Estudiantes',data:ed.map(e=>cnt(D2,r=>r[0]==e))}],{y:'Frecuencia',x:'Edad (años)'});
+ch('b4','bar',['1.º','2.º','3.º','4.º','5.º'],[{label:'Población',data:[1,2,3,4,5].map(g=>cnt(D2,r=>r[3]==g))},{label:'Muestra',data:[1,2,3,4,5].map(g=>cnt(S2,r=>r[3]==g))}],{y:'Frecuencia',x:'Grado'});
+document.getElementById('c1').textContent=cnt(D2,r=>r[0]>=12&&r[0]<=17);document.getElementById('c2').textContent=cnt(D2,r=>r[0]<12);
+</script></body></html>
